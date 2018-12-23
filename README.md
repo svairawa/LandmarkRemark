@@ -1,2 +1,2 @@
 # LandmarkRemark
-Web Application For TigerSpike
+iOS Application For TigerSpike
