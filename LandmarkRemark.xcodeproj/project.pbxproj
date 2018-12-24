@@ -14,10 +14,6 @@
 		BE7A5B8821CF6337000EAFB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7A5B8621CF6337000EAFB9 /* LaunchScreen.storyboard */; };
 		BE7A5B9321CF6337000EAFB9 /* LandmarkRemarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5B9221CF6337000EAFB9 /* LandmarkRemarkTests.swift */; };
 		BE7A5B9E21CF6337000EAFB9 /* LandmarkRemarkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5B9D21CF6337000EAFB9 /* LandmarkRemarkUITests.swift */; };
-		BE7A5BAD21CF7D64000EAFB9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5BAC21CF7D63000EAFB9 /* LoginViewController.swift */; };
-		BE7A5BAF21CF7DA7000EAFB9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5BAE21CF7DA7000EAFB9 /* RegisterViewController.swift */; };
-		BE7A5BB121CF7F7F000EAFB9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5BB021CF7F7F000EAFB9 /* MapViewController.swift */; };
-		BE7A5BB321CF813C000EAFB9 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5BB221CF813C000EAFB9 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +47,6 @@
 		BE7A5B9921CF6337000EAFB9 /* LandmarkRemarkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LandmarkRemarkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7A5B9D21CF6337000EAFB9 /* LandmarkRemarkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkRemarkUITests.swift; sourceTree = "<group>"; };
 		BE7A5B9F21CF6337000EAFB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE7A5BAC21CF7D63000EAFB9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		BE7A5BAE21CF7DA7000EAFB9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		BE7A5BB021CF7F7F000EAFB9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		BE7A5BB221CF813C000EAFB9 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +97,6 @@
 		BE7A5B7C21CF6335000EAFB9 /* LandmarkRemark */ = {
 			isa = PBXGroup;
 			children = (
-				BE7A5BAB21CF7CE9000EAFB9 /* ViewControllers */,
 				BE7A5B7D21CF6335000EAFB9 /* AppDelegate.swift */,
 				BE7A5B7F21CF6335000EAFB9 /* ViewController.swift */,
 				BE7A5B8121CF6335000EAFB9 /* Main.storyboard */,
@@ -132,17 +123,6 @@
 				BE7A5B9F21CF6337000EAFB9 /* Info.plist */,
 			);
 			path = LandmarkRemarkUITests;
-			sourceTree = "<group>";
-		};
-		BE7A5BAB21CF7CE9000EAFB9 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				BE7A5BAC21CF7D63000EAFB9 /* LoginViewController.swift */,
-				BE7A5BAE21CF7DA7000EAFB9 /* RegisterViewController.swift */,
-				BE7A5BB021CF7F7F000EAFB9 /* MapViewController.swift */,
-				BE7A5BB221CF813C000EAFB9 /* ListViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,12 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE7A5BAD21CF7D64000EAFB9 /* LoginViewController.swift in Sources */,
 				BE7A5B8021CF6335000EAFB9 /* ViewController.swift in Sources */,
-				BE7A5BB321CF813C000EAFB9 /* ListViewController.swift in Sources */,
 				BE7A5B7E21CF6335000EAFB9 /* AppDelegate.swift in Sources */,
-				BE7A5BB121CF7F7F000EAFB9 /* MapViewController.swift in Sources */,
-				BE7A5BAF21CF7DA7000EAFB9 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +433,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JZ359Q2LC3;
 				INFOPLIST_FILE = LandmarkRemark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,6 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JZ359Q2LC3;
 				INFOPLIST_FILE = LandmarkRemark/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
