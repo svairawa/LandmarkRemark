@@ -35,6 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         if let coor = mapView.userLocation.location?.coordinate{
             mapView.setCenter(coor, animated: true)
         }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -51,7 +52,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         let annotation = MKPointAnnotation()
         annotation.coordinate = locValue
         annotation.title = "Shanya's Location"
-        annotation.subtitle = "current location"
+        annotation.subtitle = "Current location"
         mapView.addAnnotation(annotation)
         
         //centerMap(locValue)

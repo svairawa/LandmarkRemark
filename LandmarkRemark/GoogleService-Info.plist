@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>891249937268-oqhb16oqc6g0gb1u2gcna1sim2g7poad.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.891249937268-oqhb16oqc6g0gb1u2gcna1sim2g7poad</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBLOWrK0e2WKRBu1rz1Kq6GYv6p8okeBqI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>891249937268</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ShanyaVairawanathan.LandmarkRemark</string>
+	<key>PROJECT_ID</key>
+	<string>landmark-remark-368eb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>landmark-remark-368eb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:891249937268:ios:6e9ebbb6ca64a3ac</string>
+	<key>DATABASE_URL</key>
+	<string>https://landmark-remark-368eb.firebaseio.com</string>
+</dict>
+</plist>
