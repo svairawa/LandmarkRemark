@@ -14,8 +14,9 @@ import FirebaseAuth
 class ProfileViewController: UIViewController {
     
     
-    @IBAction func logout(_ sender: Any) {
-        Auth().auth()?.signOut()
+    @IBAction func logout(_ sender: UIButton)
+    {
+        try! Auth.auth().signOut()
         performSegue(withIdentifier: "logout", sender: self)
         
     }
@@ -27,6 +28,6 @@ class ProfileViewController: UIViewController {
     }
     
     override func didReceiveMemoryWarning() {
-        <#code#>
+        
     }
 }
