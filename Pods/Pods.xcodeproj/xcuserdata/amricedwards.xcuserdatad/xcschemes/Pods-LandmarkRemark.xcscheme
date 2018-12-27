@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "77177E11C9CE23948E9BD228652B1113"
+               BlueprintIdentifier = "9628CACF7D24EE234BB4A35597325166"
                BuildableName = "Pods_LandmarkRemark.framework"
                BlueprintName = "Pods-LandmarkRemark"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "77177E11C9CE23948E9BD228652B1113"
+            BlueprintIdentifier = "9628CACF7D24EE234BB4A35597325166"
             BuildableName = "Pods_LandmarkRemark.framework"
             BlueprintName = "Pods-LandmarkRemark"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -43,6 +43,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
+    
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
         mapView.mapType = MKMapType.standard
         
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -57,6 +60,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         //centerMap(locValue)
     }
+//
+//    func location(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//    }
     
 }
 
