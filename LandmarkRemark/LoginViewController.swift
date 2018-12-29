@@ -49,9 +49,11 @@ class LoginViewController: UIViewController {
                     
                     
                 })
+                
             }
             else //Sign up user
             {
+            
                 Auth.auth().createUser(withEmail: emailtxt.text!, password: passwordtxt.text!, completion: {(user, error) in
                     if user != nil
                     {
@@ -69,15 +71,16 @@ class LoginViewController: UIViewController {
                         }
                     }
                 })
+                
             }
         }
     }
     
     override func viewDidLoad() {
-        <#code#>
+        super.viewDidLoad()
     }
     
     override func didReceiveMemoryWarning() {
-        <#code#>
+        
     }
 }

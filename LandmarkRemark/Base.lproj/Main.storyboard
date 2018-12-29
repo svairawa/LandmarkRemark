@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5v-7H-DQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405" y="1402"/>
+            <point key="canvasLocation" x="356" y="2161"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="x63-hI-O4E">
@@ -115,6 +115,17 @@
                                     <action selector="logout:" destination="Qc5-oM-f2J" eventType="touchUpInside" id="Bdv-cr-mdh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1v-3d-JkG">
+                                <rect key="frame" x="112" y="245" width="151" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Map">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XSi-uH-66W" kind="show" id="fj7-Bp-8mb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rEB-Jk-xpa"/>
@@ -125,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zO6-Xv-TBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="2162"/>
+            <point key="canvasLocation" x="-391.19999999999999" y="2161.1694152923542"/>
         </scene>
     </scenes>
 </document>

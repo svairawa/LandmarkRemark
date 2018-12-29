@@ -9,15 +9,27 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate {
 
+    var refNotes: DatabaseReference!
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("the user is:" + (Auth.auth().currentUser?.email)! as Any)
+        refNotes = Database.database().reference().child("notes");
+        
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -36,7 +48,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             mapView.setCenter(coor, animated: true)
         }
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        gestureRecognizer.delegate = self as? UIGestureRecognizerDelegate
+        mapView.addGestureRecognizer(gestureRecognizer)
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
 
@@ -60,6 +76,62 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
         //centerMap(locValue)
     }
+    
+    
+    @objc func handleTap(_ gestureReconizer: UILongPressGestureRecognizer)
+    {
+        
+        let location = gestureReconizer.location(in: mapView)
+        let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
+        // Add annotation:
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = "Username"
+        annotation.subtitle = "Note"
+        mapView.addAnnotation(annotation)
+        
+        
+        let alert = UIAlertController(title: "Short Note",
+                                      message: "Please enter a short note here",
+                                      preferredStyle: .alert)
+        
+        // Submit button
+        let submitAction = UIAlertAction(title: "Save", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            print(textField.text!)
+            
+            let key = self.refNotes.childByAutoId().key
+            
+            let notes = [ "id": key as Any,
+                          "Username":Auth.auth().currentUser?.email as Any,
+                          "Note": textField.text! as String,
+                          
+            ]
+            
+            self.refNotes.child(key!).setValue(notes)
+            
+        })
+        
+        // Cancel button
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in
+            self.mapView.removeAnnotation(annotation)
+        })
+        
+        // Add 1 textField and customize it
+        alert.addTextField { (textField: UITextField) in
+            textField.keyboardAppearance = .dark
+            textField.keyboardType = .default
+            textField.autocorrectionType = .default
+            textField.placeholder = "Please enter a short note here"
+            textField.clearButtonMode = .whileEditing
+        }
+        
+        alert.addAction(submitAction)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
 //
 //    func location(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
