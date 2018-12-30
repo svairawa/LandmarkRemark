@@ -13,12 +13,23 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var refNotes: DatabaseReference!
+    var longitude: Double!
+    var latitude: Double!
+    var notesList = [NotesModel]()
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notesList.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: IndexPath) as! TestFetchTableViewCell
+    }
     
     @IBOutlet weak var mapView: MKMapView!
+    
     
     let locationManager = CLLocationManager()
     
@@ -61,6 +72,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
         
     
         print("locations = \(locValue.latitude) \(locValue.longitude)")
+        longitude = locValue.longitude
+        latitude = locValue.latitude
         
         mapView.mapType = MKMapType.standard
         
@@ -106,6 +119,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate,MKMapViewDeleg
             let notes = [ "id": key as Any,
                           "Username":Auth.auth().currentUser?.email as Any,
                           "Note": textField.text! as String,
+                          "Longitude": self.longitude as Double,
+                          "Latitude": self.latitude as Double
                           
             ]
             

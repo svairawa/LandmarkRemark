@@ -20,6 +20,8 @@
 		BEA6E15221D3D16D00BB661E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7A5B7D21CF6335000EAFB9 /* AppDelegate.swift */; };
 		BEB9981C21D50C19008773B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9981B21D50C19008773B0 /* LoginViewController.swift */; };
 		BEB9981E21D51568008773B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9981D21D51568008773B0 /* ProfileViewController.swift */; };
+		BEB9982021D8F41C008773B0 /* TestFetchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9981F21D8F41C008773B0 /* TestFetchTableViewCell.swift */; };
+		BEB9982221D92DED008773B0 /* NotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9982121D92DED008773B0 /* NotesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		BEA6E15021D3C8EF00BB661E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEB9981B21D50C19008773B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BEB9981D21D51568008773B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BEB9981F21D8F41C008773B0 /* TestFetchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFetchTableViewCell.swift; sourceTree = "<group>"; };
+		BEB9982121D92DED008773B0 /* NotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesModel.swift; sourceTree = "<group>"; };
 		D23FE83E1FE934D539850D52 /* Pods-LandmarkRemark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LandmarkRemark.release.xcconfig"; path = "Pods/Target Support Files/Pods-LandmarkRemark/Pods-LandmarkRemark.release.xcconfig"; sourceTree = "<group>"; };
 		D47FB7D85AF620FE79F28FCD /* Pods-LandmarkRemarkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LandmarkRemarkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LandmarkRemarkUITests/Pods-LandmarkRemarkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,10 +139,12 @@
 				BEB9981B21D50C19008773B0 /* LoginViewController.swift */,
 				BEB9981D21D51568008773B0 /* ProfileViewController.swift */,
 				BE7A5B8121CF6335000EAFB9 /* Main.storyboard */,
+				BEB9981F21D8F41C008773B0 /* TestFetchTableViewCell.swift */,
 				BE7A5B8421CF6337000EAFB9 /* Assets.xcassets */,
 				BE7A5B8621CF6337000EAFB9 /* LaunchScreen.storyboard */,
 				BE7A5B8921CF6337000EAFB9 /* Info.plist */,
 				BEA6E15021D3C8EF00BB661E /* GoogleService-Info.plist */,
+				BEB9982121D92DED008773B0 /* NotesModel.swift */,
 			);
 			path = LandmarkRemark;
 			sourceTree = "<group>";
@@ -409,8 +415,10 @@
 			files = (
 				BEB9981C21D50C19008773B0 /* LoginViewController.swift in Sources */,
 				BEA6E15221D3D16D00BB661E /* AppDelegate.swift in Sources */,
+				BEB9982021D8F41C008773B0 /* TestFetchTableViewCell.swift in Sources */,
 				BEB9981E21D51568008773B0 /* ProfileViewController.swift in Sources */,
 				BE7A5B8021CF6335000EAFB9 /* ViewController.swift in Sources */,
+				BEB9982221D92DED008773B0 /* NotesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
