@@ -13,7 +13,7 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
-    
+    //Action for the log out button
     @IBAction func logout(_ sender: UIButton)
     {
         try! Auth.auth().signOut()

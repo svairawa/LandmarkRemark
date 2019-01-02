@@ -1,20 +1,17 @@
 //
-//  TestFetchTableViewCell.swift
+//  ViewControllerTableViewCell.swift
 //  LandmarkRemark
 //
-//  Created by Amric Edwards on 30/12/18.
+//  Created by Amric Edwards on 31/12/18.
 //  Copyright © 2018 Shanya Vairawanathan. All rights reserved.
 //
 
 import UIKit
 
-class TestFetchTableViewCell: UITableViewCell {
+class ViewControllerTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var lblUser: UILabel!
-    
     @IBOutlet weak var lblNote: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

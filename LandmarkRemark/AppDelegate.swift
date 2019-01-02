@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //Initializing firebase and configuring it on to the application
         FirebaseApp.configure()
 //        let db = Database.database().reference()
 //        db.setValue("Hello Firebase")

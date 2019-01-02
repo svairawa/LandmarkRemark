@@ -13,74 +13,103 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    //Declaring variables
     var refNotes: DatabaseReference!
     var longitude: Double!
     var latitude: Double!
-    var notesList = [NotesModel]()
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notesList.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: IndexPath) as! TestFetchTableViewCell
-    }
-    
+
+    //Creating an outlet for the map view
     @IBOutlet weak var mapView: MKMapView!
     
-    
+    //Creating a location manager to get current location
     let locationManager = CLLocationManager()
-    
-    
-    
+
+    //Instantiating the notes model
+    var notesList = [NotesModel]()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("the user is:" + (Auth.auth().currentUser?.email)! as Any)
+        //Creating a database reference
         refNotes = Database.database().reference().child("notes");
         
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
         
+        //Getting the current location
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
         
+        //Initializing the map features
         mapView.delegate = self
         mapView.mapType = .standard
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         
+        //Setting the coordinates for the map
         if let coor = mapView.userLocation.location?.coordinate{
             mapView.setCenter(coor, animated: true)
         }
         
+        //Adding the tap gesture to throw an alert view to enter the short note
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         gestureRecognizer.delegate = self as? UIGestureRecognizerDelegate
         mapView.addGestureRecognizer(gestureRecognizer)
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Fetching all the data from firebase
+        refNotes.observe(DataEventType.value, with: {(snapshot) in
+            if snapshot.childrenCount>0{
+                self.notesList.removeAll()
+                
+                for notes in snapshot.children.allObjects as![DataSnapshot]{
+                    let notesObject = notes.value as? [String: AnyObject]
+                    let notesUser = notesObject?["Username"]
+                    let notesNote = notesObject?["Note"]
+                    let notesID = notesObject?["id"]
+                    let notesLat = notesObject?["Longitude"]
+                    let notesLong = notesObject?["Latitude"]
+                    
+                    let notes = NotesModel(id: notesID as! String?, username: notesUser as! String?, note: notesNote as! String?, longitude: notesLong as! Double?, latitude: notesLat as! Double?)
+                    
+                    self.notesList.append(notes)
+                    
+                    //Creating and displaying annotations which were stores by previous users
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: notesLat as! CLLocationDegrees, longitude: notesLong as! CLLocationDegrees)
+                    annotation.title = notesUser as! String?
+                    annotation.subtitle = notesNote as! String?
+                    self.mapView.addAnnotation(annotation)
+                    
+                }
+            }
+        })
+        
     }
 
-
+    //Getting the current location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
-    
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        //Storing the coordinates
         longitude = locValue.longitude
         latitude = locValue.latitude
         
+        //Define the map type
         mapView.mapType = MKMapType.standard
         
+        //Marking the size of the map/span and region when the map is opened
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: locValue, span: span)
         mapView.setRegion(region, animated: true)
         
+        //Adding the annotation to the map
         let annotation = MKPointAnnotation()
         annotation.coordinate = locValue
         annotation.title = "Shanya's Location"
@@ -90,10 +119,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         //centerMap(locValue)
     }
     
-    
+    //Method to handle the tap gesture
     @objc func handleTap(_ gestureReconizer: UILongPressGestureRecognizer)
     {
-        
+        //Adding an annotation according to the location where the user selects
         let location = gestureReconizer.location(in: mapView)
         let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
         // Add annotation:
@@ -103,12 +132,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         annotation.subtitle = "Note"
         mapView.addAnnotation(annotation)
         
-        
+        //Defining the outlook of the alert view
         let alert = UIAlertController(title: "Short Note",
                                       message: "Please enter a short note here",
                                       preferredStyle: .alert)
         
-        // Submit button
+        // Submit button action
         let submitAction = UIAlertAction(title: "Save", style: .default, handler: { (action) -> Void in
             // Get 1st TextField's text
             let textField = alert.textFields![0]
@@ -128,12 +157,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
         })
         
-        // Cancel button
+        // Cancel button action
         let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in
             self.mapView.removeAnnotation(annotation)
         })
         
-        // Add 1 textField and customize it
+        // Adding one textField and customizing it
         alert.addTextField { (textField: UITextField) in
             textField.keyboardAppearance = .dark
             textField.keyboardType = .default
@@ -142,16 +171,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             textField.clearButtonMode = .whileEditing
         }
         
+        //Calling all the declared methods for the alert view on tap gesture
         alert.addAction(submitAction)
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
+
     
-//
-//    func location(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
-//    }
-    
+
 }
 

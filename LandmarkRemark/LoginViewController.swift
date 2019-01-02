@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
+    //Creating outlets for the components on the UI
     @IBOutlet weak var segmentControl: UISegmentedControl!
 
     @IBOutlet weak var emailtxt: UITextField!
@@ -21,11 +22,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginBtn: UIButton!
     
-    
+    //Login authentication action function
     @IBAction func loginBtnAction(_ sender: Any) {
         
         if emailtxt.text != "" && passwordtxt.text != ""
         {
+            //If the segment is login, then authenticate
             if segmentControl.selectedSegmentIndex == 0 //Login User
             {
                 Auth.auth().signIn(withEmail: emailtxt.text!, password: passwordtxt.text!, completion: { (user, error) in
@@ -51,7 +53,7 @@ class LoginViewController: UIViewController {
                 })
                 
             }
-            else //Sign up user
+            else //Register the user
             {
             
                 Auth.auth().createUser(withEmail: emailtxt.text!, password: passwordtxt.text!, completion: {(user, error) in

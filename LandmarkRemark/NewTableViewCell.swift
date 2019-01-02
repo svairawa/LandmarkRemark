@@ -1,18 +1,16 @@
 //
-//  TestFetchTableViewCell.swift
-//  LandmarkRemark
+//  NewTableViewCell.swift
+//  
 //
-//  Created by Amric Edwards on 30/12/18.
-//  Copyright © 2018 Shanya Vairawanathan. All rights reserved.
+//  Created by Shanya Vairawanathan on 2/1/19.
 //
 
 import UIKit
 
-class TestFetchTableViewCell: UITableViewCell {
-
+class NewTableViewCell: UITableViewCell {
     
+    //Creating the outlets for the labels
     @IBOutlet weak var lblUser: UILabel!
-    
     @IBOutlet weak var lblNote: UILabel!
     
     override func awakeFromNib() {

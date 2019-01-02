@@ -7,17 +7,20 @@
 //
 
 class NotesModel {
-    var id: String?
-    var Username: String?
-    var Note: String?
-    var Logitude: Double?
-    var Latitude: Double?
     
-    init(id:String?, Username: String?, Note: String?, Longitude: Double?, Latitude: Double?){
+    //Declaring and encapsulating the values from the database
+    var id: String?
+    var username: String?
+    var note: String?
+    var logitude: Double?
+    var latitude: Double?
+    
+    init(id:String?, username: String?, note: String?, longitude: Double?, latitude: Double?){
+        
         self.id = id;
-        self.Username = Username
-        self.Note = Note
-        self.Logitude = Longitude
-        self.Latitude = Latitude
+        self.username = username
+        self.note = note
+        self.logitude = longitude
+        self.latitude = latitude
     }
 }
